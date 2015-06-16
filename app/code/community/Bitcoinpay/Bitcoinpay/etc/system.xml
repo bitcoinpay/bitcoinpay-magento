@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <payment>
+            <groups>
+                <Bitcoinpay translate="label" module="paygate">
+                    <label>Bitcoinpay</label>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <apiKey translate="label">
+                            <backend_model>Bitcoinpay/apiValidator</backend_model>
+                            <label>API Key</label>
+                            <comment><![CDATA[<span class="notice">required field</span>]]></comment>
+                            <tooltip>
+                            <![CDATA[API key is used for backed authentication and you should keep it private. You will find your API key in your account under settings > API]]>
+                            </tooltip>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </apiKey>
+                        <callback translate="label">
+                            <label>Callback password</label>
+                            <tooltip>
+                            <![CDATA[We recommend using a callback password. It is used as a data validation for stronger security. Callback password can be set under Settings > API in your account at BitcoinPay.com]]>
+                            </tooltip>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </callback>
+                        <email translate="label">
+                            <label>E-mail</label>
+                            <tooltip>
+                            <![CDATA[Email where notifications about Payment changes are sent.]]>
+                            </tooltip>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </email>
+                        <payout translate="label">
+                            <backend_model>Bitcoinpay/payoutValidator</backend_model>
+                            <label>Payout currency</label>
+                            <comment><![CDATA[<span class="notice">required field</span>]]></comment>
+                            <tooltip>
+                            <![CDATA[Currency of settlement. You must first set a payout for currency in your account Settings > Payout in your account at BitcoinPay.com. If the currency is not set in payout, the request will return an error.]]>
+                            </tooltip>
+                            <frontend_type>text</frontend_type>
+                            <validate>required-entry</validate>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </payout>
+                    </fields>
+                </Bitcoinpay>
+            </groups>
+        </payment>
+    </sections>
+</config>

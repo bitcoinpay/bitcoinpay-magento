@@ -1,0 +1,63 @@
+<config>
+    <modules>
+        <Bitcoinpay_Bitcoinpay>
+            <version>1.0</version>
+        </Bitcoinpay_Bitcoinpay>
+    </modules>
+
+    <frontend>
+        <routers>
+            <bitcoinpay>
+                <use>standard</use>
+                <args>
+                    <module>Bitcoinpay_Bitcoinpay</module>
+                    <frontName>bitcoinpay_callback</frontName>
+                </args>
+            </bitcoinpay>
+        </routers>
+    </frontend>
+
+    <global>
+        <blocks>
+            <Bitcoinpay>
+                <class>Bitcoinpay_Bitcoinpay_Block</class>
+            </Bitcoinpay>
+        </blocks>
+        <models>
+            <Bitcoinpay>
+                <class>Bitcoinpay_Bitcoinpay_Model</class>
+            </Bitcoinpay>
+        </models>
+        <resources>
+            <modulename_setup>
+                <setup>
+                    <module>Bitcoinpay_Bitcoinpay</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </modulename_setup>
+            <modulename_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </modulename_write>
+            <modulename_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </modulename_read>
+        </resources>
+    </global>
+
+    <default>
+        <payment>
+            <Bitcoinpay>
+                <active>0</active>
+                <model>Bitcoinpay/paymentMethod</model>
+                <title>Bitcoin - Powered by Bitcoinpay</title>
+                <payment_action>authorize</payment_action>
+            </Bitcoinpay>
+        </payment>
+    </default>
+</config>
